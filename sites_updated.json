@@ -1,0 +1,60 @@
+{
+  "Bonnier News Group": {
+    "domain": "###_se_bonnier_group",
+    "group": [
+      "dagensmedicin.se",
+      "dn.se",
+      "hd.se",
+      "sydsvenskan.se"
+    ],
+    "allow_cookies": 1,
+    "useragent": "googlebot",
+    "exception": [{
+        "domain": "dn.se",
+        "allow_cookies": 1,
+        "ld_archive_is": "div.paywall-wrapper|article"
+      }
+    ],
+    "upd_version": "4.0.8.5"
+  },
+  "Dagens ETC": {
+    "domain": "etc.se",
+    "allow_cookies": 1,
+    "cs_code": "[{\"cond\":\"section.teaser-section\", \"rm_class\":\"teaser-section\"}, {\"cond\":\"section.prose-feature .hidden\", \"rm_class\":\"hidden\"}]",
+    "upd_version": "4.0.8.6"
+  },
+  "Frankfurter Rundschau": {
+    "domain": "fr.de",
+    "allow_cookies": 1,
+    "block_regex": "\\.fr\\.de\\/sub\\/js\\/pc-offer-west\\.js",
+    "upd_version": "4.0.7.4"
+  },
+  "MilanoFinanza.it": {
+    "domain": "milanofinanza.it",
+    "allow_cookies": 1,
+    "ld_json": "div.paywall-content,section.payment|div.article-locked",
+    "upd_version": "4.0.8.1"
+  },
+  "NOZ/MHN Mediengruppe": {
+    "domain": "###_de_noz_mhn",
+    "group": [
+      "noz.de",
+      "shz.de"
+    ],
+    "allow_cookies": 1,
+    "ld_archive_is": "div.paywall|article",
+    "upd_version": "4.0.8.4"
+  },
+  "The Scottish Sun": {
+    "domain": "thescottishsun.co.uk",
+    "allow_cookies": 1,
+    "block_regex": "\\.thescottishsun\\.co\\.uk\\/zephr\\/feature",
+    "upd_version": "4.0.7.3"
+  },
+  "Vice": {
+    "domain": "vice.com",
+    "allow_cookies": 1,
+    "cs_code": "[{\"cond\":\"iframe.swg-dialog,swg-popup-background\", \"rm_elem\":1}, {\"cond\":\"body.swg-disable-scroll\", \"rm_class\":\"swg-disable-scroll\"}]",
+    "upd_version": "4.0.8.6"
+  }
+}
