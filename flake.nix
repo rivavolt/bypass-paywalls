@@ -1,0 +1,27 @@
+{
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+  outputs = { self, nixpkgs }:
+    let
+      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
+    in {
+      packages = forAllSystems (system:
+        let pkgs = nixpkgs.legacyPackages.${system};
+        in {
+          default = pkgs.stdenv.mkDerivation {
+            pname = "bypass-paywalls";
+            version = "0-unstable";
+            src = self;
+            dontBuild = true;
+            installPhase = ''
+              mkdir -p $out/share/chromium-extension
+              cp -r background.js contentScript.js contentScript_once.js contentScript_once_var.js \
+                    sites.js sites_updated.json manifest.json \
+                    bypass.png bypass-dark.png \
+                    options custom lib \
+                    $out/share/chromium-extension/
+            '';
+          };
+        });
+    };
+}
