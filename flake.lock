@@ -2,11 +2,11 @@
   "nodes": {
     "nix-crx": {
       "locked": {
-        "lastModified": 1772900767,
-        "narHash": "sha256-fqMNUKA0jSPK4X4Z6U1KRt2uLx8nGpVqV3HuTnvjlZk=",
+        "lastModified": 1774606966,
+        "narHash": "sha256-gZjn7eVv79YWirHn1tyjnZYl+yuonowKYwKzIn49+UI=",
         "owner": "andreivolt",
         "repo": "nix-crx",
-        "rev": "b762b1c21a4ae4b4bff36f5791d721fbebf45920",
+        "rev": "61e1c59e941cd73fc849edd38ed36e3b90b76b82",
         "type": "github"
       },
       "original": {

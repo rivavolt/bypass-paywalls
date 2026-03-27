@@ -27,9 +27,13 @@
             '';
           };
 
+          manifest = builtins.fromJSON (builtins.readFile ./manifest.json);
+
           crxPkg = nix-crx.lib.mkCrxPackage {
             inherit pkgs extension;
             key = ./keys/signing.pem;
+            extId = "diaohonmkmppbdanbkdmodchdmhehodi";
+            version = manifest.version;
           };
 
         in {
