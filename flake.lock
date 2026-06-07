@@ -4,13 +4,13 @@
       "locked": {
         "lastModified": 1774606966,
         "narHash": "sha256-gZjn7eVv79YWirHn1tyjnZYl+yuonowKYwKzIn49+UI=",
-        "owner": "andreivolt",
+        "owner": "rivavolt",
         "repo": "nix-crx",
         "rev": "61e1c59e941cd73fc849edd38ed36e3b90b76b82",
         "type": "github"
       },
       "original": {
-        "owner": "andreivolt",
+        "owner": "rivavolt",
         "repo": "nix-crx",
         "type": "github"
       }

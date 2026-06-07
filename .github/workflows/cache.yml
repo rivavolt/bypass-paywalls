@@ -1,0 +1,7 @@
+name: cache
+on: { push: { branches: [main] }, workflow_dispatch: {} }
+jobs:
+  cache:
+    uses: rivavolt/ci/.github/workflows/flake-cache.yml@v1
+    with: { attr: ".#default" }
+    secrets: inherit

@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-crx.url = "github:andreivolt/nix-crx";
+    nix-crx.url = "github:rivavolt/nix-crx";
   };
 
   outputs = { self, nixpkgs, nix-crx }:
