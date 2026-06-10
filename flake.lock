@@ -1,12 +1,18 @@
 {
   "nodes": {
     "nix-crx": {
+      "inputs": {
+        "nixpkgs": [
+          "nix-webext",
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1774606966,
-        "narHash": "sha256-gZjn7eVv79YWirHn1tyjnZYl+yuonowKYwKzIn49+UI=",
+        "lastModified": 1781106844,
+        "narHash": "sha256-yM3HgqnPngvnmDH40TM3zZjE/qAVzLxIozTfaYHOQVw=",
         "owner": "rivavolt",
         "repo": "nix-crx",
-        "rev": "61e1c59e941cd73fc849edd38ed36e3b90b76b82",
+        "rev": "d9be73255b1011e088017bcd3b5475bac12a1d20",
         "type": "github"
       },
       "original": {
@@ -15,13 +21,48 @@
         "type": "github"
       }
     },
+    "nix-webext": {
+      "inputs": {
+        "nix-crx": "nix-crx",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1781109594,
+        "narHash": "sha256-R9ZKXVaWdhhJf6XQgNItVo6DStnFP45WWjfi5Rs1c5E=",
+        "owner": "rivavolt",
+        "repo": "nix-webext",
+        "rev": "3d45a8003b1d4721f64d5e1455ab9c9b4d3fc7c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rivavolt",
+        "repo": "nix-webext",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1772736753,
-        "narHash": "sha256-au/m3+EuBLoSzWUCb64a/MZq6QUtOV8oC0D9tY2scPQ=",
+        "lastModified": 1780749050,
+        "narHash": "sha256-3av0pIjlOWQ6rDbNOmpUSvbNnJkGORQKKjb4LtCZsIY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "917fec990948658ef1ccd07cef2a1ef060786846",
+        "rev": "a799d3e3886da994fa307f817a6bc705ae538eeb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1780930886,
+        "narHash": "sha256-rppURzHviaQN131F+nLiLdGfcb0uCd9gGP0E5+iw9MI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "8c3cede7ddc26bd659d2d383b5610efbd2c7a16e",
         "type": "github"
       },
       "original": {
@@ -33,8 +74,8 @@
     },
     "root": {
       "inputs": {
-        "nix-crx": "nix-crx",
-        "nixpkgs": "nixpkgs"
+        "nix-webext": "nix-webext",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

@@ -1,16 +1,19 @@
 {
+  description = "bypass-paywalls — bypass paywalls on news sites";
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-crx.url = "github:rivavolt/nix-crx";
+    nix-webext.url = "github:rivavolt/nix-webext";
   };
 
-  outputs = { self, nixpkgs, nix-crx }:
+  outputs = { self, nixpkgs, nix-webext }:
     let
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
     in {
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+          manifest = builtins.fromJSON (builtins.readFile ./manifest.json);
 
           extension = pkgs.stdenv.mkDerivation {
             pname = "bypass-paywalls";
@@ -26,19 +29,18 @@
                     $out/share/chromium-extension/
             '';
           };
-
-          manifest = builtins.fromJSON (builtins.readFile ./manifest.json);
-
-          crxPkg = nix-crx.lib.mkCrxPackage {
-            inherit pkgs extension;
-            key = ./keys/signing.pem;
-            extId = "diaohonmkmppbdanbkdmodchdmhehodi";
-            version = manifest.version;
-          };
-
-        in {
-          inherit extension;
-          default = crxPkg.package;
+        in
+        # Chrome-only (no gecko id). Build feeds nix-webext the pre-assembled
+        # `extension`; nix-webext emits the keyless external-extension manifest
+        # (CRX signed at activation). extId is the stable Chrome ID the old
+        # committed key derived.
+        nix-webext.lib.mkBrowserExtension {
+          inherit pkgs extension;
+          pname = "bypass-paywalls";
+          version = manifest.version;
+          extId = "diaohonmkmppbdanbkdmodchdmhehodi";
+          firefox = false;
+          transformManifest = false;
         });
     };
 }
