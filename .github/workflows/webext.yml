@@ -1,0 +1,32 @@
+name: webext
+
+# Single entry for this extension's whole CI chain, all on rivavolt/ci@v1:
+#   - cache:   on every push, build the flake and push the custom closure delta to attic.
+#   - autotag: on a push to main, if the manifest .version has no v<version> tag yet, create+push it (an App-token push, so it triggers the release below). A version bump IS the release.
+#   - release: on a v* tag, build .#release, AMO-sign the XPI, publish a GitHub Release.
+# A version bump merged to main therefore releases itself; pushes that don't change the version only refresh the cache.
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  cache:
+    if: github.ref_type != 'tag'
+    uses: rivavolt/ci/.github/workflows/avolt-cache.yml@v1
+    secrets: inherit
+
+  autotag:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    uses: rivavolt/ci/.github/workflows/webext-autotag.yml@v1
+    secrets: inherit
+
+  release:
+    if: github.ref_type == 'tag'
+    uses: rivavolt/ci/.github/workflows/webext-release.yml@v1
+    secrets: inherit
