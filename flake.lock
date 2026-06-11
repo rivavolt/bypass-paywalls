@@ -27,11 +27,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1781136348,
-        "narHash": "sha256-q+9GABMcArT/kBDq+6EmV6iNGMF7PkFa9FMUDQMFzkI=",
+        "lastModified": 1781172271,
+        "narHash": "sha256-IKmvx+J4G6dNM5dxgV71hrhcXXCB2EdSVQhVc9SeBpY=",
         "owner": "rivavolt",
         "repo": "nix-webext",
-        "rev": "eb7fbdb74fbc012d0cba90f8e0f2b57fca709773",
+        "rev": "60c8d1ba2a6d25f230795583fca650317146f79d",
         "type": "github"
       },
       "original": {
