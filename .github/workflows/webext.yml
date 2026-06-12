@@ -18,7 +18,7 @@ permissions:
 jobs:
   cache:
     if: github.ref_type != 'tag'
-    uses: rivavolt/ci/.github/workflows/avolt-cache.yml@v1
+    uses: rivavolt/ci/.github/workflows/avolt-build-cache.yml@v1
     secrets: inherit
 
   autotag:
